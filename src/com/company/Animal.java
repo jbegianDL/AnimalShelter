@@ -12,7 +12,7 @@ public class Animal {
     private Date arrivalDate; //TODO figure out what Date does
     private String status;
 
-    public Animal(String name, String species, String breed, String color, int age, Date arrivalDate, String status) {
+    public Animal(String name, String species, String breed, String color, int age, Date arrivalDate) {
         this.name = name;
         this.species = species;
         this.breed = breed;

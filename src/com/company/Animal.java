@@ -19,7 +19,18 @@ public class Animal {
         this.color = color;
         this.age = age;
         this.arrivalDate = arrivalDate;
-        this.status = status;
+        this.status = "Available";
+    }
+
+    public void printAnimalDetails(){
+        System.out.println("Animal ID Number: " + idNumber + "\n" +
+                "Animal Name: " + name + "\n" +
+                "Animal species: " + species + "\n" +
+                "Animal breed: " + breed + "\n" +
+                "Animal color: " + color + "\n" +
+                "Animal age: " + age + "\n" +
+                "Animal arrival date: " + arrivalDate + "\n" +
+                "Animal stats: " + status + "\n");
     }
 
     public int getIdNumber() {

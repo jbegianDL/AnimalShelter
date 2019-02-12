@@ -1,9 +1,13 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class Shelter {
     private ArrayList<Animal> shelter = new ArrayList<>(75);
+    private Scanner scanner = new Scanner(System.in);
 
     public void addAnimal(Animal animal){
         shelter.add(animal);
@@ -23,6 +27,38 @@ public class Shelter {
             } else {
                 System.out.println("Cannot find...");
             }
+        }
+    }
+
+    public void viewAndEdit(int index){
+        System.out.println("Please enter number of status change: \n" +
+                "1 - Adoption Pending \n" +
+                "2 - Foster Care \n" +
+                "3 - Adopted");
+        int edit = scanner.nextInt();
+        if (edit == 1){
+            shelter.get(index).setStatus("Adoption Pending");
+        } else if (edit == 2){
+            shelter.get(index).setStatus("Foster Care");
+        } else if (edit == 3){
+            shelter.get(index).setStatus("Adopted");
+        } else {
+            System.out.println("Incorrect Input");
+        }
+
+        shelter.get(index).printAnimalDetails();
+    }
+
+    public void sortAnimals(){
+        ArrayList<String> animalNames = new ArrayList<>();
+        for (Animal animal : shelter){
+            animalNames.add(animal.getName());
+        }
+
+        Collections.sort(animalNames);
+
+        for (String name : animalNames){
+            System.out.println("Name: " + name + "\n");
         }
     }
 

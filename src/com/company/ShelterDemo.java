@@ -1,8 +1,10 @@
 package com.company;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class ShelterDemo {
+    private static IDNumber idNumber = new IDNumber();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -39,7 +41,7 @@ public class ShelterDemo {
 
 
     public static void createAnimal(Shelter shelter, Scanner scanner){
-        IDNumber idNumber = new IDNumber();
+
         System.out.println("Please enter animal name: ");
         String name = scanner.nextLine();
         System.out.println("Please enter animal species: ");
@@ -51,11 +53,17 @@ public class ShelterDemo {
         System.out.println("Please enter animal age: ");
         int age = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Please enter animal arrival date (YYYY/MM/DD): ");
-        String arrivalDate = scanner.nextLine();
+        System.out.println("Please enter animal arrival year (YYYY): ");
+        int year = scanner.nextInt();
+        System.out.println("Please enter animal arrival month (MM): ");
+        int month = scanner.nextInt();
+        System.out.println("Please enter animal arrival day (DD): ");
+        int day = scanner.nextInt();
+        Calendar.Builder arrivalDate = new Calendar.Builder();
 
-        Animal animal = new Animal(name, species, breed, color, age, arrivalDate);
+        Animal animal = new Animal(name, species, breed, color, age);
         animal.setIdNumber(idNumber.incrementID());
+        animal.setArrivalDate(arrivalDate.setDate(year, month, day));//Sets date but prints memory address
 
         shelter.addAnimal(animal);
     }

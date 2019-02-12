@@ -1,6 +1,6 @@
 package com.company;
 
-import java.util.Date;
+import java.util.Calendar;
 
 public class Animal {
     private int idNumber;
@@ -9,17 +9,17 @@ public class Animal {
     private String breed;
     private String color;
     private int age;
-    private String arrivalDate; //TODO figure out what Date does
+    private Calendar.Builder arrivalDate;
     private String status;
 
-    public Animal(String name, String species, String breed, String color, int age, String arrivalDate) {
+    public Animal(String name, String species, String breed, String color, int age) {
         this.idNumber = getIdNumber();
         this.name = name;
         this.species = species;
         this.breed = breed;
         this.color = color;
         this.age = age;
-        this.arrivalDate = arrivalDate;
+        this.arrivalDate = getArrivalDate();
         this.status = "Available";
     }
 
@@ -30,7 +30,7 @@ public class Animal {
                 "Animal breed: " + breed + "\n" +
                 "Animal color: " + color + "\n" +
                 "Animal age: " + age + "\n" +
-                "Animal arrival date: " + arrivalDate + "\n" +
+                "Animal arrival date: " + getArrivalDate() + "\n" +
                 "Animal stats: " + status + "\n");
     }
 
@@ -82,11 +82,11 @@ public class Animal {
         this.age = age;
     }
 
-    public String getArrivalDate() {
+    public Calendar.Builder getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(String arrivalDate) {
+    public void setArrivalDate(Calendar.Builder arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 

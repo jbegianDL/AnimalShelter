@@ -9,17 +9,21 @@ public class Animal {
     private String breed;
     private String color;
     private int age;
-    private Calendar.Builder arrivalDate;
+    private int year;
+    private int month;
+    private int day;
     private String status;
 
-    public Animal(String name, String species, String breed, String color, int age) {
+    public Animal(String name, String species, String breed, String color, int age, int year, int month, int day) {
         this.idNumber = getIdNumber();
         this.name = name;
         this.species = species;
         this.breed = breed;
         this.color = color;
         this.age = age;
-        this.arrivalDate = getArrivalDate();
+        this.year = year;
+        this.month = month;
+        this.day = day;
         this.status = "Available";
     }
 
@@ -30,7 +34,7 @@ public class Animal {
                 "Animal breed: " + breed + "\n" +
                 "Animal color: " + color + "\n" +
                 "Animal age: " + age + "\n" +
-                "Animal arrival date: " + getArrivalDate() + "\n" +
+                "Animal arrival date: " + month + "-" + day + "-" + year + "\n" +
                 "Animal stats: " + status + "\n");
     }
 
@@ -82,12 +86,28 @@ public class Animal {
         this.age = age;
     }
 
-    public Calendar.Builder getArrivalDate() {
-        return arrivalDate;
+    public int getYear() {
+        return year;
     }
 
-    public void setArrivalDate(Calendar.Builder arrivalDate) {
-        this.arrivalDate = arrivalDate;
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
     }
 
     public String getStatus() {

@@ -31,6 +31,13 @@ public class ShelterDemo {
                     createAnimal(shelter, scanner);
                     shelter.printShelter();
                     break;
+                case 2:
+                    deleteAnimal(shelter, scanner);
+                    shelter.printShelter();
+                    break;
+                case 3:
+                    searchAnimals(shelter, scanner);
+                    break;
                 case 8:
                     System.out.println("Goodbye");
                     repeat = false;
@@ -59,12 +66,26 @@ public class ShelterDemo {
         int month = scanner.nextInt();
         System.out.println("Please enter animal arrival day (DD): ");
         int day = scanner.nextInt();
-        Calendar.Builder arrivalDate = new Calendar.Builder();
 
-        Animal animal = new Animal(name, species, breed, color, age);
+        Animal animal = new Animal(name, species, breed, color, age, year, month, day);
         animal.setIdNumber(idNumber.incrementID());
-        animal.setArrivalDate(arrivalDate.setDate(year, month, day));//Sets date but prints memory address
 
         shelter.addAnimal(animal);
+    }
+
+    public static void deleteAnimal(Shelter shelter, Scanner scanner){
+        System.out.println("Enter the index of the animal you'd like to delete: ");
+        shelter.printIndexAndName();
+
+        int index = scanner.nextInt();
+
+        shelter.removeAnimal(index);
+    }
+
+    public static void searchAnimals(Shelter shelter, Scanner scanner){
+        System.out.println("Please enter an ID Number: ");
+        int id = scanner.nextInt();
+
+        shelter.searchByID(id);
     }
 }

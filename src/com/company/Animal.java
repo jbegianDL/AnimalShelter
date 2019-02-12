@@ -9,10 +9,11 @@ public class Animal {
     private String breed;
     private String color;
     private int age;
-    private Date arrivalDate; //TODO figure out what Date does
+    private String arrivalDate; //TODO figure out what Date does
     private String status;
 
-    public Animal(String name, String species, String breed, String color, int age, Date arrivalDate) {
+    public Animal(String name, String species, String breed, String color, int age, String arrivalDate) {
+        this.idNumber = getIdNumber();
         this.name = name;
         this.species = species;
         this.breed = breed;
@@ -23,7 +24,7 @@ public class Animal {
     }
 
     public void printAnimalDetails(){
-        System.out.println("Animal ID Number: " + idNumber + "\n" +
+        System.out.println("Animal ID Number: " + getIdNumber() + "\n" +
                 "Animal Name: " + name + "\n" +
                 "Animal species: " + species + "\n" +
                 "Animal breed: " + breed + "\n" +
@@ -81,11 +82,11 @@ public class Animal {
         this.age = age;
     }
 
-    public Date getArrivalDate() {
+    public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(String arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 

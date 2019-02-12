@@ -7,7 +7,13 @@ public class Shelter {
 
     public void addAnimal(Animal animal){
         shelter.add(animal);
-        System.out.println("Total animals: " + shelter.size());
+        System.out.println("Total animals: " + shelter.size() + "\n");
+    }
+
+    public void printShelter(){
+        for(Animal animal: shelter){
+            animal.printAnimalDetails();
+        }
     }
 
 

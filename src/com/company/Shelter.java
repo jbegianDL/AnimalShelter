@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
@@ -50,15 +49,17 @@ public class Shelter {
     }
 
     public void sortAnimals(){
-        ArrayList<String> animalNames = new ArrayList<>();
+        ArrayList<String> animalAlpha = new ArrayList<>();
         for (Animal animal : shelter){
-            animalNames.add(animal.getName());
+            animalAlpha.add("Name: " + animal.getName() + "\n" +
+                    "Species: " + animal.getSpecies() + "\n" +
+                    "Breed: " + animal.getBreed() + "\n");
         }
 
-        Collections.sort(animalNames);
+        Collections.sort(animalAlpha);
 
-        for (String name : animalNames){
-            System.out.println("Name: " + name + "\n");
+        for (String animal : animalAlpha){
+            System.out.println(animal);
         }
     }
 
